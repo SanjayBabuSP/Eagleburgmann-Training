@@ -1,0 +1,36 @@
+{
+  "name": "coe-example",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-ui5-tooling": "^1.18.1",
+    "cds-plugin-ui5": "^0.9.3",
+    "@types/node": "^22.0.0",
+    "typescript": "^5",
+    "@cap-js/cds-typer": ">=0.1"
+  },
+  "scripts": {
+    "start": "cd training && cds-serve",
+    "watch-orders": "cds watch --open eagleburgmann.training.orders/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch": "cd training && cds-tsx w"
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/orders",
+    "app/orders"
+  ],
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  }
+}
