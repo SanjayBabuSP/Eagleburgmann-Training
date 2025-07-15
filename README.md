@@ -19,6 +19,12 @@ File or Folder | Purpose
 - (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
 - Start adding content, for example, a [db/schema.cds](db/schema.cds).
 
+## Install
+
+- `cds add typescript`
+- `npm i`
+- `cd training` and `npm i`
+
 
 ## Learn More
 
