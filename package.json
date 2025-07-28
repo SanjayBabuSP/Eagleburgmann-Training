@@ -1,36 +1,76 @@
 {
-  "name": "coe-example",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^8",
-    "express": "^4"
-  },
-  "devDependencies": {
-    "@cap-js/cds-types": "^0.10.0",
-    "@cap-js/sqlite": "^1",
-    "@sap/ux-ui5-tooling": "^1.18.1",
-    "cds-plugin-ui5": "^0.9.3",
-    "@types/node": "^22.0.0",
-    "typescript": "^5",
-    "@cap-js/cds-typer": ">=0.1"
-  },
-  "scripts": {
-    "start": "cd training && cds-serve",
-    "watch-orders": "cds watch --open eagleburgmann.training.orders/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch": "cd training && cds-tsx w"
-  },
-  "workspaces": [
-    "app/*"
-  ],
-  "sapux": [
-    "app/orders",
-    "app/orders"
-  ],
-  "imports": {
-    "#cds-models/*": "./@cds-models/*/index.js"
-  }
+ "name": "eagleburgmann-training",
+ "version": "1.0.0",
+ "description": "A simple CAP project.",
+ "repository": "https://github.com/SanjayBabuSP/Eagleburgmann-Training",
+ "license": "UNLICENSED",
+ "private": true,
+ "dependencies": {
+  "@sap/cds": "^8",
+  "express": "^4"
+ },
+ "devDependencies": {
+  "@eslint/js": "^9.9.1",
+  "@prettier/plugin-xml": "^3.4.1",
+  "eslint": "^9.9.1",
+  "globals": "^15.9.0",
+  "prettier": "^3.3.3",
+  "prettier-plugin-sh": "^0.14.0",
+  "typescript-eslint": "^8.3.0",
+  "@cap-js/cds-types": "^0.13.0",
+  "@types/node": "^22.0.0",
+  "tsx": "^4",
+  "typescript": "^5",
+  "@cap-js/cds-typer": ">=0.1"
+ },
+ "scripts": {
+  "bootstrap:unix": "npm run bootstrap:vscode:unix && npm run locksync:unix && npm install && npm run postinstall:unix && npm install --prefix training/router && npm run build",
+  "bootstrap:win": "npm run bootstrap:vscode:win && npm run locksync:win && npm install && npm run postinstall:win && npm install --prefix training/router && npm run build",
+  "bootstrap:vscode:unix": "mkdir -p ./.vscode && cp ./.vscode_template/settings.json ./.vscode/settings.json && cp ./.vscode_template/extensions.json ./.vscode/extensions.json",
+  "bootstrap:vscode:win": "PowerShell -Command \"New-Item -ItemType Directory -Path ./.vscode -Force;Copy-Item ./.vscode_template/settings.json -Destination ./.vscode/settings.json -Force;Copy-Item ./.vscode_template/extensions.json -Destination ./.vscode/extensions.json -Force\"",
+  "postinstall:unix": "find . -mindepth 2 -maxdepth 2 -name package.json -execdir npm install \\;",
+  "postinstall:win": "PowerShell -Command \"Get-ChildItem -Path . -Filter 'package.json' -File -Recurse -Depth 1 | Where-Object { $_.DirectoryName -ne $PWD.Path } | ForEach-Object { Set-Location $_.DirectoryName; npm install }\"",
+  "locksync:unix": "find . -mindepth 2 -maxdepth 2 -name package-lock.json -execdir rm {} \\; && find . -mindepth 2 -maxdepth 2 -name node_modules -execdir rm -rf {} \\;",
+  "locksync:win": "PowerShell -Command \"Get-ChildItem -Path . -Filter 'package-lock.json' -File -Recurse -Depth 1 | ForEach-Object { Remove-Item -Path $_.FullName }; Get-ChildItem -Path . -Filter 'node_modules' -Directory -Recurse -Depth 1 | ForEach-Object { Remove-Item -Path $_.FullName -Recurse -Force }\"",
+  "login": "cf login -a https://api.cf.eu10.hana.ondemand.com --sso",
+  "build": "cd training && mbt build",
+  "deploy": "cf deploy ./training/mta_archives/training_1.0.0.mtar -f",
+  "local": "node bootstrap.js",
+  "watch": "cd training && cds-tsx w",
+  "pretty": "npx prettier --write .",
+  "pretty-sh": "npx prettier --write '**/*.sh'",
+  "pretty-xml": "npx prettier --write '**/*.xml'"
+ },
+ "bootstrap": {
+  "debug": false,
+  "withBindingsUpdate": true,
+  "parallel": false,
+  "verboseOutput": true,
+  "profile": "hybrid",
+  "approuterPath": "training",
+  "basePath": "./",
+  "services": [
+   {
+    "path": "training",
+    "name": "training-srv",
+    "port": 4004,
+    "boundServices": [
+     "coe-uaa",
+     "coe-destination",
+     "coe-connectivity",
+     "coe-db"
+    ]
+   }
+  ]
+ },
+ "workspaces": [
+  "app/*"
+ ],
+ "sapux": [
+  "app/orders",
+  "app/orders"
+ ],
+ "imports": {
+  "#cds-models/*": "./@cds-models/*/index.js"
+ }
 }
