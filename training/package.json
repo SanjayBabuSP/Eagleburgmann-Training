@@ -1,5 +1,5 @@
 {
-  "name": "coe-example",
+  "name": "eagleburgmann-training",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -16,7 +16,8 @@
     "cds-plugin-ui5": "^0.9.3",
     "@types/node": "^22.0.0",
     "typescript": "^5",
-    "@cap-js/cds-typer": ">=0.1"
+    "@cap-js/cds-typer": ">=0.1",
+    "tsx": "^4"
   },
   "scripts": {
     "start": "cd training && cds-serve",
