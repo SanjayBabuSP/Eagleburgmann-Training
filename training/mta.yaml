@@ -1,0 +1,73 @@
+_schema-version: "3.1"
+ID: training
+version: 1.0.0
+description: "Eagleburgmann Training Application"
+
+parameters:
+  enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production
+
+modules:
+  - name: training-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: coe-uaa
+      - name: coe-destination
+      - name: coe-connectivity
+      - name: coe-db
+
+  - name: training-router
+    type: approuter.nodejs
+    path: router
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: coe-uaa
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv-api
+          url: ~{srv-url}
+
+  - name: training-app-orders
+    type: nodejs
+    path: app/orders
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+    requires:
+      - name: coe-uaa
+      - name: srv-api
+
+resources:
+  - name: coe-uaa
+    type: org.cloudfoundry.managed-service
+
+  - name: coe-destination
+    type: org.cloudfoundry.managed-service
+
+  - name: coe-connectivity
+    type: org.cloudfoundry.managed-service
+
+  - name: coe-db
+    type: org.cloudfoundry.managed-service

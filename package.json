@@ -17,7 +17,7 @@
   "prettier": "^3.3.3",
   "prettier-plugin-sh": "^0.14.0",
   "typescript-eslint": "^8.3.0",
-  "@cap-js/cds-types": "^0.13.0",
+  "@cap-js/cds-types": "^0.10.0",
   "@types/node": "^22.0.0",
   "tsx": "^4",
   "typescript": "^5",
