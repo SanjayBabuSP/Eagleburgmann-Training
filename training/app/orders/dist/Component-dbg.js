@@ -4,14 +4,11 @@ sap.ui.define(["sap/fe/core/AppComponent"], function (BaseComponent) {
   /**
    * @namespace eagleburgmann.training.orders
    */
-  const Component = BaseComponent.extend(
-    "eagleburgmann.training.orders.Component",
-    {
-      metadata: {
-        manifest: "json",
-      },
-    },
-  );
+  const Component = BaseComponent.extend("eagleburgmann.training.orders.Component", {
+    metadata: {
+      manifest: "json"
+    }
+  });
   return Component;
 });
 //# sourceMappingURL=Component-dbg.js.map
