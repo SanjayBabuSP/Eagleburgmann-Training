@@ -1,9 +1,9 @@
 {
-    "recommendations": [
-      "SAPSE.sap-ux-fiori-tools-extension-pack",
-      "SAPSE.vscode-cds",
-      "humao.rest-client",
-      "esbenp.prettier-vscode",
-      "ms-vscode.vscode-eslint"
-    ]
+  "recommendations": [
+    "SAPSE.sap-ux-fiori-tools-extension-pack",
+    "SAPSE.vscode-cds",
+    "humao.rest-client",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-eslint"
+  ]
 }

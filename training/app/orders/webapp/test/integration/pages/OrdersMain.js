@@ -8,6 +8,6 @@ sap.ui.define(["sap/fe/test/TemplatePage"], function (TemplatePage) {
 
   return new TemplatePage(
     "eagleburgmann.training.orders::OrdersMain",
-    CustomPageDefinitions
+    CustomPageDefinitions,
   );
 });

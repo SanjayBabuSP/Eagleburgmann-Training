@@ -1,9 +1,17 @@
 import Controller from "sap/fe/core/PageController";
-
+import ODataModel from "sap/ui/model/odata/v4/ODataModel";
+import View from "sap/ui/core/mvc/View";
 /**
  * @namespace eagleburgmann.training.orders.ext.main
  */
 export default class Main extends Controller {
+  public onInit(): void {
+    const view = this.getView() as View;
+    const oDataModel = new ODataModel({
+      serviceUrl: "/odata/v4/Orders/",
+    });
+    view.setModel(oDataModel);
+  }
   /**
    * Called when a controller is instantiated and its View controls (if available) are already created.
    * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.

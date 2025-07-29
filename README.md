@@ -4,14 +4,13 @@ Welcome to your new project.
 
 It contains these folders and files, following our recommended project layout:
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
-
+| File or Folder | Purpose                              |
+| -------------- | ------------------------------------ |
+| `app/`         | content for UI frontends goes here   |
+| `db/`          | your domain models and data go here  |
+| `srv/`         | your service models and code go here |
+| `package.json` | project metadata and configuration   |
+| `readme.md`    | this getting started guide           |
 
 ## Next Steps
 
@@ -24,7 +23,6 @@ File or Folder | Purpose
 - `cds add typescript`
 - `npm i`
 - `cd training` and `npm i`
-
 
 ## Learn More
 

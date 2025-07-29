@@ -1,21 +1,19 @@
 {
-    "eslint.workingDirectories": [
-      "training"
-    ],
-    "files.exclude": {
-      "**/node_modules": true,
-      "**/dist": true,
-      "**/.nyc_output": true,
-      "**/coverage": true,
-      "**/.git": true,
-      "**/.DS_Store": true,
-      "**/Thumbs.db": true
-    },
-    "search.exclude": {
-      "**/node_modules": true,
-      "**/dist": true,
-      "**/.nyc_output": true,
-      "**/coverage": true,
-      "**/gen": true
-    }
+  "eslint.workingDirectories": ["training"],
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.nyc_output": true,
+    "**/coverage": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.nyc_output": true,
+    "**/coverage": true,
+    "**/gen": true
   }
+}

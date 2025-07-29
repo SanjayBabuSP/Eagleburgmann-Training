@@ -11,9 +11,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "com/coe/orders/*": [
-        "./webapp/*"
-      ]
+      "com/coe/orders/*": ["./webapp/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
@@ -22,7 +20,5 @@
       "../../node_modules/@sapui5/types"
     ]
   },
-  "include": [
-    "./webapp/**/*"
-  ]
+  "include": ["./webapp/**/*"]
 }
