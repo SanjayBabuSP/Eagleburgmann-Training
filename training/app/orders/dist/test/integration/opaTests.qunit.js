@@ -1,2 +1,15 @@
-sap.ui.require(["sap/fe/test/JourneyRunner","com/coe/orders/test/integration/FirstJourney","com/coe/orders/test/integration/pages/OrdersMain"],function(e,r,n){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("com/coe/orders")+"/index.html"});e.run({pages:{onTheOrdersMain:n}},r.run)});
+sap.ui.require(
+  [
+    "sap/fe/test/JourneyRunner",
+    "com/coe/orders/test/integration/FirstJourney",
+    "com/coe/orders/test/integration/pages/OrdersMain",
+  ],
+  function (e, r, n) {
+    "use strict";
+    var e = new e({
+      launchUrl: sap.ui.require.toUrl("com/coe/orders") + "/index.html",
+    });
+    e.run({ pages: { onTheOrdersMain: n } }, r.run);
+  },
+);
 //# sourceMappingURL=opaTests.qunit.js.map

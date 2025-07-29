@@ -1,2 +1,6 @@
-sap.ui.define(["sap/fe/test/TemplatePage"],function(e){"use strict";var n={actions:{},assertions:{}};return new e("eagleburgmann.training.orders::OrdersMain",n)});
+sap.ui.define(["sap/fe/test/TemplatePage"], function (e) {
+  "use strict";
+  var n = { actions: {}, assertions: {} };
+  return new e("eagleburgmann.training.orders::OrdersMain", n);
+});
 //# sourceMappingURL=OrdersMain.js.map

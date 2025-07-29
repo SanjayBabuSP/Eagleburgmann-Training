@@ -1,2 +1,15 @@
-sap.ui.define(["sap/fe/core/PageController","sap/ui/model/odata/v4/ODataModel"],function(e,n){"use strict";const t=e.extend("eagleburgmann.training.orders.ext.main.Main",{onInit:function e(){const t=this.getView();const a=new n({serviceUrl:"/odata/v4/Orders/"});t.setModel(a)}});return t});
+sap.ui.define(
+  ["sap/fe/core/PageController", "sap/ui/model/odata/v4/ODataModel"],
+  function (e, n) {
+    "use strict";
+    const t = e.extend("eagleburgmann.training.orders.ext.main.Main", {
+      onInit: function e() {
+        const t = this.getView();
+        const a = new n({ serviceUrl: "/odata/v4/Orders/" });
+        t.setModel(a);
+      },
+    });
+    return t;
+  },
+);
 //# sourceMappingURL=Main.controller.js.map
