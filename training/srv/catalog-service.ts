@@ -1,12 +1,19 @@
-import cds, { Service } from "@sap/cds";
+import cds from "@sap/cds";
+const { SELECT, UPDATE, INSERT, DELETE } = cds.ql;
+class CatalogService extends cds.ApplicationService {
+  async filteredQueryOrders() {
+    const { Orders } = this.entities;
+    const filteredQuery = SELECT.from(Orders).where("quantity >", 90);
+    const results = await cds.run(filteredQuery);
+    return results;
+  }
 
-export default class CatalogService extends cds.ApplicationService {
   async init() {
     const { Orders } = this.entities;
-    this.on("READ", Orders, async () => {
-      const filteredQuery = SELECT.from(Orders).where("quantity >", 90);
-      await cds.run(filteredQuery);
-      return super.init();
-    });
+    this.on("READ", Orders, this.filteredQueryOrders.bind(this));
+
+    return super.init();
   }
 }
+
+module.exports = { CatalogService };
