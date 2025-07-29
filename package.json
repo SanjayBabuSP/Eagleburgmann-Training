@@ -7,21 +7,22 @@
  "private": true,
  "dependencies": {
   "@sap/cds": "^8",
-  "express": "^4"
+  "express": "^4",
+  "sqlite3": "^5.1.7"
  },
  "devDependencies": {
+  "@cap-js/cds-typer": ">=0.1",
+  "@cap-js/cds-types": "^0.10.0",
   "@eslint/js": "^9.9.1",
   "@prettier/plugin-xml": "^3.4.1",
+  "@types/node": "^22.0.0",
   "eslint": "^9.9.1",
   "globals": "^15.9.0",
   "prettier": "^3.3.3",
   "prettier-plugin-sh": "^0.14.0",
-  "typescript-eslint": "^8.3.0",
-  "@cap-js/cds-types": "^0.10.0",
-  "@types/node": "^22.0.0",
   "tsx": "^4",
   "typescript": "^5",
-  "@cap-js/cds-typer": ">=0.1"
+  "typescript-eslint": "^8.3.0"
  },
  "scripts": {
   "bootstrap:unix": "npm run bootstrap:vscode:unix && npm run locksync:unix && npm install && npm run postinstall:unix && npm install --prefix training/router && npm run build",
