@@ -1,6 +1,45 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:table="sap.ui.table"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:uxap="sap.uxap" xmlns:macros="sap.fe.macros" xmlns:table="sap.ui.table"
     xmlns:html="http://www.w3.org/1999/xhtml" controllerName="eagleburgmann.training.orders.ext.main.Main">
     <Page id="Main" title="{i18n>MainTitle}">
-        <content></content>
+        <content>
+            <uxap:ObjectPageLayout id="ObjectPageLayout" showHeaderContent="true">
+                <uxap:sections>
+                    <uxap:ObjectPageSection id="OrderDetailsSection" title="Order Details">
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection id="OrderIDSubSection" title="Order ID">
+                                <VBox id="VBox1" class="sapUiSmallMargin">
+                                    <Input id="OrderIDInput" value="{ID}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                            <uxap:ObjectPageSubSection id="UserIDSubSection" title="User ID">
+                                <VBox id="VBox2" class="sapUiSmallMargin">
+                                    <Input id="UserIDInput" value="{user_ID}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                            <uxap:ObjectPageSubSection id="ProductIDSubSection" title="Product ID">
+                                <VBox id="VBox3" class="sapUiSmallMargin">
+                                    <Input id="ProductIDInput" value="{product_ID}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                            <uxap:ObjectPageSubSection id="QuantitySubSection" title="Quantity">
+                                <VBox id="VBox4" class="sapUiSmallMargin">
+                                    <Input id="QuantityInput" value="{quantity}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                            <uxap:ObjectPageSubSection id="OrderDateSubSection" title="Order Date">
+                                <VBox id="VBox5" class="sapUiSmallMargin">
+                                    <Input id="OrderDateInput" value="{orderDate}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                            <uxap:ObjectPageSubSection id="ShippingAddressSubSection" title="Shipping Address ID">
+                                <VBox id="VBox6" class="sapUiSmallMargin">
+                                    <Input id="ShippingAddressInput" value="{shippingAddress_ID}" editable="false" width="50%"/>
+                                </VBox>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                </uxap:sections>
+            </uxap:ObjectPageLayout>
+        </content>
     </Page>
 </mvc:View>
