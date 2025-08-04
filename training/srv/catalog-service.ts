@@ -10,7 +10,7 @@ class CatalogService extends cds.ApplicationService {
 
   async init() {
     const { Orders } = this.entities;
-    this.on("READ", Orders, this.filteredQueryOrders.bind(this));
+    //this.on("READ", Orders, this.filteredQueryOrders.bind(this));
 
     return super.init();
   }
