@@ -1,7 +1,7 @@
 {
   "eslint.workingDirectories": ["training"],
   "files.exclude": {
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/dist": true,
     "**/.nyc_output": true,
     "**/coverage": true,
@@ -10,7 +10,7 @@
     "**/Thumbs.db": true
   },
   "search.exclude": {
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/dist": true,
     "**/.nyc_output": true,
     "**/coverage": true,

@@ -20,9 +20,10 @@
     "tsx": "^4"
   },
   "scripts": {
-    "start": "cd training && cds-serve",
+    "start": "cds-serve",
     "watch-orders": "cds watch --open eagleburgmann.training.orders/index.html?sap-ui-xx-viewCache=false --livereload false",
-    "watch": "cd training && cds-tsx w"
+    "watch": "cds-tsx w",
+    "build": "mbt build"
   },
   "workspaces": [
     "app/*"

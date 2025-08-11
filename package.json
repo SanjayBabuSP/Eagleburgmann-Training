@@ -6,7 +6,6 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^8",
     "express": "^4",
     "sqlite3": "^5.1.7"
   },
@@ -33,8 +32,8 @@
     "postinstall:win": "PowerShell -Command \"Get-ChildItem -Path . -Filter 'package.json' -File -Recurse -Depth 1 | Where-Object { $_.DirectoryName -ne $PWD.Path } | ForEach-Object { Set-Location $_.DirectoryName; npm install }\"",
     "locksync:unix": "find . -mindepth 2 -maxdepth 2 -name package-lock.json -execdir rm {} \\; && find . -mindepth 2 -maxdepth 2 -name node_modules -execdir rm -rf {} \\;",
     "locksync:win": "PowerShell -Command \"Get-ChildItem -Path . -Filter 'package-lock.json' -File -Recurse -Depth 1 | ForEach-Object { Remove-Item -Path $_.FullName }; Get-ChildItem -Path . -Filter 'node_modules' -Directory -Recurse -Depth 1 | ForEach-Object { Remove-Item -Path $_.FullName -Recurse -Force }\"",
-    "login": "cf login -a https://api.cf.eu10.hana.ondemand.com --sso",
-    "build": "cd training && mbt build",
+    "login": "cf login -a https://api.cf.us10-001.hana.ondemand.com --sso",
+    "build": "npm run build --prefix training",
     "deploy": "cf deploy ./training/mta_archives/training_1.0.0.mtar -f",
     "local": "node bootstrap.js",
     "watch": "cd training && cds-tsx w",

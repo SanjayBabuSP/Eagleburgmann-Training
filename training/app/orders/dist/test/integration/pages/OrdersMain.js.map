@@ -1,1 +1,0 @@
-{"version":3,"file":"OrdersMain.js","names":["sap","ui","define","TemplatePage","CustomPageDefinitions","actions","assertions"],"sources":["OrdersMain-dbg.js"],"mappings":"AAAAA,IAAIC,GAAGC,OAAO,CAAC,4BAA6B,SAAUC,GACpD,aAEA,IAAIC,EAAwB,CAC1BC,QAAS,CAAC,EACVC,WAAY,CAAC,GAGf,OAAO,IAAIH,EACT,4CACAC,EAEJ","ignoreList":[]}

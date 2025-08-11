@@ -10,6 +10,8 @@
   "main": "webapp/index.html",
   "dependencies": {},
   "devDependencies": {
+    "@sap/ui5-builder-webide-extension": "^1.1.9",
+    "@sap/ux-specification": "UI5-1.122",
     "@ui5/cli": "^3.0.0",
     "@sap/ux-ui5-tooling": "1",
     "@sapui5/types": "~1.136.0",
@@ -17,16 +19,30 @@
     "typescript": "^5.1.6",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
-    "@sap-ux/eslint-plugin-fiori-tools": "^0.4.0"
+    "@sap-ux/eslint-plugin-fiori-tools": "^0.4.0",
+    "@openui5/types": "~1.134.0",
+    "ui5-task-zipper": "3"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension",
+      "ui5-task-zipper",
+      "mbt"
+    ]
   },
   "scripts": {
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
     "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateCachebusterInfo",
+    "start": "npm run build && npx cds-serve ../../srv",
     "lint": "eslint ./",
     "ts-typecheck": "tsc --noEmit",
     "prestart": "npm run ts-typecheck",
     "prebuild": "npm run ts-typecheck",
     "deploy": "fiori verify",
     "deploy-config": "fiori add deploy-config"
+  },
+  "engines": {
+    "node": "^22",
+    "npm": "^10"
   }
 }

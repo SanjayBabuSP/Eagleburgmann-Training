@@ -19,6 +19,8 @@ modules:
     path: gen/srv
     parameters:
       buildpack: nodejs_buildpack
+      disk-quota: 256M
+      memory: 256M
     build-parameters:
       builder: npm-ci
     provides:
@@ -29,7 +31,7 @@ modules:
       - name: coe-uaa
       - name: coe-destination
       - name: coe-connectivity
-      - name: coe-db
+      - name: coe-hdi-db
 
   - name: training-router
     type: approuter.nodejs
@@ -48,13 +50,16 @@ modules:
           url: ~{srv-url}
 
   - name: training-app-orders
-    type: nodejs
+    type: html5
     path: app/orders
+    parameters:
+      disk-quota: 512M
+      memory: 512M
     build-parameters:
       builder: custom
       commands:
         - npm install
-        - npm run build
+        - npm run build:cf
     requires:
       - name: coe-uaa
       - name: srv-api
@@ -62,12 +67,24 @@ modules:
 resources:
   - name: coe-uaa
     type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
 
   - name: coe-destination
     type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
 
   - name: coe-connectivity
     type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
 
-  - name: coe-db
+  - name: coe-hdi-db
     type: org.cloudfoundry.managed-service
+    parameters:
+      service: hana
+      service-plan: hdi-shared

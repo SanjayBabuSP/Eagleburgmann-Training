@@ -87,12 +87,36 @@
           "name": "OrdersMain",
           "pattern": ":?query:",
           "target": "OrdersMain"
+        },
+        {
+          "name": "OrdersObjectPage",
+          "pattern": "Orders({key}):?query:",
+          "target": "OrdersObjectPage"
         }
       ],
       "targets": {
         "OrdersMain": {
           "type": "Component",
           "id": "OrdersMain",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "Orders",
+              "variantManagement": "Page",
+              "initialLoad": true,
+              "navigation": {
+                "Orders": {
+                  "detail": {
+                    "route": "OrdersObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "OrdersObjectPage": {
+          "type": "Component",
+          "id": "OrdersObjectPage",
           "name": "sap.fe.core.fpm",
           "options": {
             "settings": {
