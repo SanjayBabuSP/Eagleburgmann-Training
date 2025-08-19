@@ -1,45 +1,56 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:uxap="sap.uxap" xmlns:macros="sap.fe.macros" xmlns:table="sap.ui.table"
-    xmlns:html="http://www.w3.org/1999/xhtml" controllerName="eagleburgmann.training.orders.ext.main.Main">
-    <Page id="Main" title="{i18n>MainTitle}">
+<mvc:View xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="eagleburgmann.training.orders.ext.main.Main">
+    <Page id="Main">
+        <customHeader>
+        <Toolbar id="ActionToolbar" class="sapUiSmallMarginTop">
+            <Title text="{i18n>orderDetails}" level="H2"/>
+            <ToolbarSpacer/>
+            <Button id="EditButton" text="Edit" type="Emphasized" press=".onEditPress"/>
+        </Toolbar>
+    </customHeader>
+
         <content>
-            <uxap:ObjectPageLayout id="ObjectPageLayout" showHeaderContent="true">
-                <uxap:sections>
-                    <uxap:ObjectPageSection id="OrderDetailsSection" title="Order Details">
-                        <uxap:subSections>
-                            <uxap:ObjectPageSubSection id="OrderIDSubSection" title="Order ID">
-                                <VBox id="VBox1" class="sapUiSmallMargin">
-                                    <Input id="OrderIDInput" value="{ID}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                            <uxap:ObjectPageSubSection id="UserIDSubSection" title="User ID">
-                                <VBox id="VBox2" class="sapUiSmallMargin">
-                                    <Input id="UserIDInput" value="{user_ID}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                            <uxap:ObjectPageSubSection id="ProductIDSubSection" title="Product ID">
-                                <VBox id="VBox3" class="sapUiSmallMargin">
-                                    <Input id="ProductIDInput" value="{product_ID}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                            <uxap:ObjectPageSubSection id="QuantitySubSection" title="Quantity">
-                                <VBox id="VBox4" class="sapUiSmallMargin">
-                                    <Input id="QuantityInput" value="{quantity}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                            <uxap:ObjectPageSubSection id="OrderDateSubSection" title="Order Date">
-                                <VBox id="VBox5" class="sapUiSmallMargin">
-                                    <Input id="OrderDateInput" value="{orderDate}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                            <uxap:ObjectPageSubSection id="ShippingAddressSubSection" title="Shipping Address ID">
-                                <VBox id="VBox6" class="sapUiSmallMargin">
-                                    <Input id="ShippingAddressInput" value="{shippingAddress_ID}" editable="false" width="50%"/>
-                                </VBox>
-                            </uxap:ObjectPageSubSection>
-                        </uxap:subSections>
-                    </uxap:ObjectPageSection>
-                </uxap:sections>
-            </uxap:ObjectPageLayout>
+            <f:SimpleForm
+                id="OrderForm"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+                columnsXL="1" columnsL="1" columnsM="1"
+                singleContainerFullSize="false">
+
+                <Label text="Order ID"/>
+                <Input value="{ID}" editable="false"/>
+
+                <Label text="User ID"/>
+                <Input value="{user_ID}" editable="false"/>
+
+                <Label text="Product ID"/>
+                <Input value="{product_ID}" editable="false"/>
+
+                <Label text="Quantity"/>
+                <Input value="{quantity}" editable="false"/>
+
+
+                <Label text="Order Date"/>
+                <Input value="{orderDate}" editable="false"/>
+                
+
+                <Label text="Shipping Address ID"/>
+                <Input value="{shippingAddress_ID}" editable="false"/>
+            </f:SimpleForm>
         </content>
+
+        <footer>
+            <Toolbar id="FooterToolbar">
+                <ToolbarSpacer/>
+                <Button id="SaveButton" text="Save" type="Accept" press=".onSavePress" enabled="false"/>
+                <Button id="DiscardButton" text="Discard" type="Reject" press=".onDiscardPress"/>
+            </Toolbar>
+        </footer>
     </Page>
 </mvc:View>

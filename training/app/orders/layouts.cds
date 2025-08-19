@@ -12,7 +12,10 @@ annotate service.Orders with @(
   },
   UI.SelectionFields: [
     quantity,
-    orderDate
+    orderDate,
+    user.username,
+    product.name,
+    shippingAddress.city
   ],
   UI.LineItem: [
     {
@@ -22,13 +25,28 @@ annotate service.Orders with @(
     },
     {
       $Type : 'UI.DataField',
-      Value: quantity,
+      Value : quantity,
       Label : '{i18n>quantity}'
     },
     {
       $Type : 'UI.DataField',
       Value : orderDate,
       Label : '{i18n>orderDate}'
+    },
+    {
+      $Type : 'UI.DataField',
+      Value : user_ID,
+      Label : '{i18n>userName}'
+    },
+    {
+      $Type : 'UI.DataField',
+      Value : product.name,
+      Label : '{i18n>productName}'
+    },
+    {
+      $Type : 'UI.DataField',
+      Value : shippingAddress.city,
+      Label : '{i18n>shippingCity}'
     }
   ]
 );
